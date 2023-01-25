@@ -6,10 +6,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name     = "rg-terraform-state-001"
-    storage_account_name    = "cloudninjaterraformstate"
-    container_name          = "tfstate"
-    key                     = "GitHub-Terraform-rg-loganalytics-001"
+    resource_group_name     = "MyRgRemoteBackend"
+    storage_account_name    = "storageremotetfmahdi"
+    container_name          = "tfbackends"
+    key                     = "GitHub-Terraform-rg-001"
   }
 }
 
