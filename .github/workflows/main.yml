@@ -24,7 +24,7 @@ jobs:
       - name: 'Terraform init'
         id: init
         run: |
-          cd kubernetes-cluster
+          cd paas
           terraform init          
           terraform plan
           terraform apply -auto-approve
