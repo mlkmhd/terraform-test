@@ -3,7 +3,7 @@ name: rg-001
 on:
   push:
     paths:
-      - '*.tf'
+      - '**'
 
   workflow_dispatch:
 
@@ -24,20 +24,7 @@ jobs:
       - name: 'Terraform init'
         id: init
         run: |
+          cd kubernetes-cluster
           terraform init          
-
-      - name: 'Terraform plan'
-        id: plan
-        run: |
           terraform plan
-                    
-      - name: 'Terraform apply'
-        id: apply
-        run: |
           terraform apply -auto-approve
-
-
-      - name: 'Terraform destroy'
-        id: destroy
-        run: |
-          terraform destroy -auto-approve
