@@ -13,7 +13,7 @@ terraform {
     resource_group_name     = "MyRgRemoteBackend"
     storage_account_name    = "storageremotetfmahdi"
     container_name          = "tfbackends"
-    key                     = "GitHub-Terraform-rg-001"
+    key                     = "GitHub-Terraform-rg-paas"
   }
 }
 

@@ -1,4 +1,4 @@
-name: rg-001
+name: azure-resource-manager
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
   resourcegroups:
     runs-on: ubuntu-latest
     
-    name: 'rg-001'
+    name: 'azure-resource-manager'
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -25,7 +25,7 @@ jobs:
         id: terraform
         run: |
           set -xe
-          cd iaas
+          cd paas
           terraform init          
           terraform plan
           terraform apply -auto-approve
