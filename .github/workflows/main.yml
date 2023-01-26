@@ -21,8 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: 'Terraform init'
-        id: init
+      - name: 'Terraform'
+        id: terraform
         run: |
           cd paas
           terraform init          
