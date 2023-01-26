@@ -24,7 +24,8 @@ jobs:
       - name: 'Terraform'
         id: terraform
         run: |
-          cd paas
+          cd iaas
           terraform init          
           terraform plan
           terraform apply -auto-approve
+          terraform destroy -auto-approve
