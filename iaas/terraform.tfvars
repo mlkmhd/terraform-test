@@ -1,2 +1,2 @@
-resource_group_name="bookRg"
-location="West Europe"
+resource_group_name = "bookRg"
+location = "West Europe"
