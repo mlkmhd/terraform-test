@@ -24,6 +24,7 @@ jobs:
       - name: 'Terraform'
         id: terraform
         run: |
+          set -xe
           cd iaas
           terraform init          
           terraform plan
