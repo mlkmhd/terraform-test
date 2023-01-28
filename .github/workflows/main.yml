@@ -36,5 +36,10 @@ jobs:
 
       - name: deploy app
         run: |
+          set -xe
           cd saas
-          kubectl apply -f *.yaml
+
+          for f in *.yaml
+          do
+            kubectl apply -f $f 
+          done
