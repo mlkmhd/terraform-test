@@ -32,6 +32,6 @@ jobs:
           #terraform destroy -auto-approve
 
           mkdir -p ~/.kube
-          cp kubeconfig ~/.kube/
+          mv kubeconfig ~/.kube/config
 
           kubectl get nodes
