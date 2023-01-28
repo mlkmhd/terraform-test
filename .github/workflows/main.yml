@@ -30,12 +30,8 @@ jobs:
           terraform plan
           terraform apply -auto-approve
           #terraform destroy -auto-approve
-          ls -lth 
+
+          mkdir -p ~/.kube
+          cp kubeconfig ~/.kube/
 
           kubectl get nodes
-      
-      - name: upload kubeconfig
-        uses: actions/upload-artifact@v3
-        with:
-          name: kubeconfig
-          path: kubeconfig
