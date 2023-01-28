@@ -22,7 +22,7 @@ jobs:
       
       - uses: actions/checkout@v3
 
-      - name: terraform
+      - name: prepare infrastructure
         run: |
           set -xe
           cd paas
@@ -34,9 +34,7 @@ jobs:
           mkdir -p ~/.kube
           mv kubeconfig ~/.kube/config
 
-      - name: deploy to kubernetes
+      - name: deploy app
         run: |
-          set -xe
-          pwd
-          ls -lth
-          kubectl get nodes
+          cd saas
+          kubectl apply -f *.yaml

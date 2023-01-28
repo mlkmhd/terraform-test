@@ -1,0 +1,100 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: v2ray-config
+data:
+  
+  config.json: |
+    {
+      "log": {
+        "access": "/var/log/v2ray/access.log",
+        "error": "/var/log/v2ray/error.log",
+        "loglevel": "warning"
+      },
+      "inbounds": [
+        {
+          "listen": "0.0.0.0",
+          "port": 8080,
+          "protocol": "vmess",
+          "settings": {
+            "clients": [
+              {
+                "id": "26bd2540-ca43-4b31-a1ec-37b883d9ac4f",
+                "alterId": 64,
+                "security": "chacha20-poly1305"
+              }
+            ]
+          },
+          "streamSettings": {
+            "network": "tcp",
+            "tcpSettings": {
+              "header": {
+                "type": "http",
+                "response": {
+                  "version": "1.1",
+                  "status": "200",
+                  "reason": "OK",
+                  "headers": {
+                    "Content-Type": [
+                      "application/octet-stream",
+                      "application/x-msdownload",
+                      "text/html",
+                      "application/x-shockwave-flash"
+                    ],
+                    "Transfer-Encoding": [
+                      "chunked"
+                    ],
+                    "Connection": [
+                      "keep-alive"
+                    ],
+                    "Pragma": "no-cache"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "listen": "0.0.0.0",
+          "port": 2318,
+          "protocol": "vmess",
+          "settings": {
+            "clients": [
+              {
+                "id": "26bd2540-ca43-4b31-a1ec-37b883d9ac4f",
+                "alterId": 0,
+                "security": "chacha20-poly1305"
+              }
+            ]
+          },
+          "streamSettings": {
+            "network": "ws"
+          }
+        }
+      ],
+      "outbound": {
+        "protocol": "freedom",
+        "tag": "freedom"
+      },
+      "inboundDetour": null,
+      "outboundDetour": [
+        {
+          "protocol": "blackhole",
+          "tag": "blackhole"
+        }
+      ],
+      "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "settings": {
+          "rules": [
+            {
+              "type": "field",
+              "outboundTag": "blackhole",
+              "ip": [
+                "geoip:private"
+              ]
+            }
+          ]
+        }
+      }
+    }
