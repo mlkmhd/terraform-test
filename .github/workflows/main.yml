@@ -19,8 +19,7 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
     steps:
-      - name: prepare infrastructure
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       
       - name: terraform
         run: |
