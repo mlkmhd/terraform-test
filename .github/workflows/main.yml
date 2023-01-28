@@ -19,7 +19,6 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
     steps:
-      - uses: actions/upload-artifact@v3
       
       - name: terraform
         run: |
@@ -31,6 +30,7 @@ jobs:
           #terraform destroy -auto-approve
       
       - name: upload kubeconfig
+        uses: actions/upload-artifact@v3
         with:
           name: kubeconfig
           path: kubeconfig
