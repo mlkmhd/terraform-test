@@ -34,4 +34,9 @@ jobs:
           mkdir -p ~/.kube
           mv kubeconfig ~/.kube/config
 
+      - name: deploy to kubernetes
+        run: |
+          set -xe
+          pwd
+          ls -lth
           kubectl get nodes
