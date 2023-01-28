@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  resourcegroups:
+  prepare-infrastructure:
     runs-on: ubuntu-latest
     
     name: 'azure-resource-manager'
@@ -19,9 +19,8 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: 'Terraform'
+      - name: prepare infrastructure
+        uses: actions/checkout@v3
         id: terraform
         run: |
           set -xe
@@ -31,3 +30,12 @@ jobs:
           terraform apply -auto-approve
           #terraform destroy -auto-approve
           ls -lth
+          KUBECONFIG=`cat kubeconfig`
+      
+      - name: deploy application
+        uses: tale/kubectl-action@v1
+        with:
+          base64-kube-config: ${{ KUBECONFIG }}
+        run: | 
+          set -xe
+          kubectl get nodes
