@@ -21,7 +21,8 @@ jobs:
     steps:
       - name: prepare infrastructure
         uses: actions/checkout@v3
-        id: terraform
+      
+      - name: terraform
         run: |
           set -xe
           cd paas
