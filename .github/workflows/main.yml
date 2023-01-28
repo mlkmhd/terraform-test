@@ -30,9 +30,21 @@ jobs:
           terraform plan
           terraform apply -auto-approve
           #terraform destroy -auto-approve
-          ls -lth
-          KUBECONFIG=`cat kubeconfig`
       
+      - name: upload kubeconfig
+        uses: actions/upload-artifact@v3
+        with:
+          name: kubeconfig
+          path: kubeconfig
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: deploy application
+    steps:
+      - name: download kubeconfig
+        uses: actions/download-artifact@v3
+        with:
+          name: kubeconfig
       - name: deploy application
         uses: tale/kubectl-action@v1
         with:
