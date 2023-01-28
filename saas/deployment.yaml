@@ -24,10 +24,10 @@ spec:
           mountPath: /etc/v2ray/config.json
           subPath: config.json
           readOnly: true
-  volumes:
-  - name: config
-    configMap:
-      name: v2ray-config
-      items:
-      - key: "config.json"
-        path: "config.json"
+    volumes:
+    - name: config
+      configMap:
+        name: v2ray-config
+        items:
+        - key: "config.json"
+          path: "config.json"
