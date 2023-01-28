@@ -21,6 +21,7 @@ jobs:
     steps:
       
       - name: terraform
+        uses: actions/checkout@v3
         run: |
           set -xe
           cd paas
