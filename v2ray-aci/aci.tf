@@ -16,6 +16,8 @@ resource "azurerm_container_group" "example" {
       port     = 6443
       protocol = "TCP"
     }
+
+    commands = [ "v2ray", "run", "-c", "/etc/v2ray/config.json" ]
   }
 
   tags = {
