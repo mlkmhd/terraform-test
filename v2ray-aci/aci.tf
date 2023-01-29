@@ -17,7 +17,8 @@ resource "azurerm_container_group" "example" {
       protocol = "TCP"
     }
 
-    commands = [ "v2ray", "run", "-c", "/etc/v2ray/config.json" ]
+    # commands = [ "v2ray", "run", "-c", "/etc/v2ray/config.json" ]
+    commands = [ "sleep", "30000000" ]
 
     volume {
       name                 = "config-volume"
