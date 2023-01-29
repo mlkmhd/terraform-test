@@ -25,21 +25,8 @@ jobs:
       - name: prepare infrastructure
         run: |
           set -xe
-          cd paas
+          cd v2ray-aci
           terraform init          
           terraform plan
           terraform apply -auto-approve
-          terraform destroy -auto-approve
-
-          mkdir -p ~/.kube
-          mv kubeconfig ~/.kube/config
-
-      - name: deploy app
-        run: |
-          set -xe
-          cd saas
-
-          for f in *.yaml
-          do
-            kubectl apply -f $f 
-          done
+          #terraform destroy -auto-approve
