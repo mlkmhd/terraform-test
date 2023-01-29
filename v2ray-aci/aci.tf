@@ -18,14 +18,16 @@ resource "azurerm_container_group" "example" {
     }
 
     # commands = [ "v2ray", "run", "-c", "/etc/v2ray/config.json" ]
-    commands = [ "ls", "-lth", "/etc/v2ray/config.json" ]
+    commands = [ "ls", "-lth", "/etc/v2ray/" ]
 
     volume {
       name                 = "config-volume"
       mount_path           = "/etc/v2ray"
-      storage_account_name = azurerm_storage_account.aci_storage.name
-      storage_account_key  = azurerm_storage_account.aci_storage.primary_access_key
-      share_name           = azurerm_storage_share.container_share.name
+      read_only            = false
+      
+      secret = {
+        "mysecret1"=base64encode("My first secret FOO")
+      }
     }
   }
 
