@@ -10,10 +10,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name     = "MyRgRemoteBackend"
-    storage_account_name    = "storageremotetfmahdi"
-    container_name          = "tfbackends"
-    key                     = "GitHub-Terraform-rg-paas"
+    resource_group_name  = "tfstate"
+    storage_account_name = "tfstate16753"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
   }
 }
 
