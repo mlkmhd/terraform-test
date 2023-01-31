@@ -1,5 +1,5 @@
 resource "azurerm_container_group" "example" {
-  count               = 3
+  count               = 4
   name                = count.index
   location            = var.resource_group_location
   resource_group_name = azurerm_resource_group.rg.name
