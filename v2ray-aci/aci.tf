@@ -11,7 +11,7 @@ resource "azurerm_container_group" "example" {
     name   = "v2ray"
     image  = "v2fly/v2fly-core:latest"
     cpu    = "0.2"
-    memory = "0.1"
+    memory = "0.2"
 
     ports {
       port     = 6443
