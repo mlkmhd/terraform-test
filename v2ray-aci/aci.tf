@@ -10,8 +10,8 @@ resource "azurerm_container_group" "example" {
   container {
     name   = "v2ray"
     image  = "docker.io/v2fly/v2fly-core:latest"
-    cpu    = "0.1"
-    memory = "0.1"
+    cpu    = "0.2"
+    memory = "0.2"
 
     ports {
       port     = 6443
