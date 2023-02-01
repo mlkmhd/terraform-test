@@ -1,5 +1,5 @@
 resource "azurerm_container_group" "example" {
-  count               = 4
+  count               = 2
   name                = count.index
   location            = var.resource_group_location
   resource_group_name = azurerm_resource_group.rg.name
@@ -10,8 +10,8 @@ resource "azurerm_container_group" "example" {
   container {
     name   = "v2ray"
     image  = "v2fly/v2fly-core:latest"
-    cpu    = "0.2"
-    memory = "0.2"
+    cpu    = "0.1"
+    memory = "0.1"
 
     ports {
       port     = 6443
