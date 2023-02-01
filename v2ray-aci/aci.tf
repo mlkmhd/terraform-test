@@ -9,7 +9,7 @@ resource "azurerm_container_group" "example" {
 
   container {
     name   = "v2ray"
-    image  = "docker.io/v2fly/v2fly-core:latest"
+    image  = "v2fly/v2fly-core:v5.1.0"
     cpu    = "0.2"
     memory = "0.2"
 
