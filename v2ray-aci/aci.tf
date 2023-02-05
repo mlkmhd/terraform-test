@@ -1,16 +1,16 @@
 resource "azurerm_container_group" "example" {
-  count               = 2
-  name                = count.index + 1
+  count               = 1
+  name                = count.index + 3
   location            = var.resource_group_location
   resource_group_name = azurerm_resource_group.rg.name
   ip_address_type     = "Public"
-  dns_name_label      = "aci-v2ray-tom-${count.index + 1}"
+  dns_name_label      = "aci-v2ray-tom-${count.index + 3}"
   os_type             = "Linux"
 
   container {
     name   = "v2ray"
     image  = "v2fly/v2fly-core:v5.1.0"
-    cpu    = "0.2"
+    cpu    = "0.1"
     memory = "0.1"
 
     ports {
