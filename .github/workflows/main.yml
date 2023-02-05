@@ -26,7 +26,7 @@ jobs:
         run: |
           set -xe
           cd v2ray-aci
-          terraform init -lock=false
-          terraform plan -lock=false
-          terraform apply -auto-approve -lock=false
-          #terraform destroy -auto-approve -lock=false
+          terraform init 
+          terraform plan 
+          terraform apply -auto-approve 
+          #terraform destroy -auto-approve 
