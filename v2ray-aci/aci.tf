@@ -1,10 +1,10 @@
 resource "azurerm_container_group" "example" {
   count               = 1
-  name                = count.index + 7
+  name                = count.index + 8
   location            = var.resource_group_location
   resource_group_name = azurerm_resource_group.rg.name
   ip_address_type     = "Public"
-  dns_name_label      = "aci-v2ray-tom-${count.index + 7}"
+  dns_name_label      = "aci-v2ray-tom-${count.index + 8}"
   os_type             = "Linux"
 
   container {
